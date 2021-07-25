@@ -12,3 +12,5 @@ npm i typeorm
 
 
 npm run start:dev
+
+npm install class-validator class-transformer
