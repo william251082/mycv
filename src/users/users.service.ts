@@ -11,6 +11,10 @@ export class UsersService {
     create(email: string, password: string) {
         const user = this.repo.create({email, password})
 
+        // hooks not executed
+        // return this.repo.save({email: 'hi@hi.com', password: 'uvgvjg'})
+
+        // hooks executed
         return this.repo.save(user)
     }
 }
