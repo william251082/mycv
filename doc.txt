@@ -8,3 +8,7 @@ nest g controller users
 nest g controller reports
 
 npm install @nestjs/typeorm sqlite3
+npm i typeorm
+
+
+npm run start:dev
