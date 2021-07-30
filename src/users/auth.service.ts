@@ -7,11 +7,11 @@ const scrypt = promisify(_scrypt)
 
 @Injectable()
 export class AuthService {
-    constructor(private userService: UsersService) {}
+    constructor(private usersService: UsersService) {}
 
     async signup(email: string, password: string) {
         // See if email is in use
-        const users = await this.userService.find(email)
+        const users = await this.usersService.find(email)
         if (users.length) {
             throw new BadRequestException('email in use')
         }
@@ -25,7 +25,7 @@ export class AuthService {
         const result = salt + '.' + hash.toString('hex')
 
         // Create a new user and save it
-        const user = await this.userService.create(email, result)
+        const user = await this.usersService.create(email, result)
 
         // return the user
         return user;
