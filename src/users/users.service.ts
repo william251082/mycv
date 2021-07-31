@@ -15,6 +15,9 @@ export class UsersService {
     }
 
     findOne(id: number) {
+        if (!id) {
+            return null
+        }
         return this.repo.findOne(id)
     }
 
@@ -39,6 +42,3 @@ export class UsersService {
         return this.repo.remove(user)
     }
 }
-
-// const usersService = new UsersService({} as any)
-// usersService.update(1, {email: 'hi@hi.com', password: 'asasas'})
