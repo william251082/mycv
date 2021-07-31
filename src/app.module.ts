@@ -12,7 +12,7 @@ const cookieSession = require('cookie-session')
 @Module({
   imports: [TypeOrmModule.forRoot({
     type: 'sqlite',
-    database: 'db.sqlite',
+    database: process.env.NODE_ENV === 'test' ? 'test.sqlite' : 'db.sqlite',
     entities: [User, Report],
     synchronize: true
   }), UsersModule, ReportsModule],
