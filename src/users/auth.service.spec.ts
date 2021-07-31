@@ -2,7 +2,7 @@ import { Test} from '@nestjs/testing';
 import {AuthService} from "./auth.service";
 import {UsersService} from "./users.service";
 import {User} from "./user.entity";
-import {BadRequestException} from "@nestjs/common";
+import {BadRequestException, NotFoundException} from "@nestjs/common";
 
 describe('AuthService', () => {
     let service: AuthService
@@ -47,6 +47,15 @@ describe('AuthService', () => {
         } catch (err) {
             expect(err).toBeInstanceOf(BadRequestException);
             expect(err.message).toBe('email already in use');
+        }
+    })
+
+    it('throws if signin is called with an unused email', async () => {
+        try {
+            await service.signin('hi@hiqwq.com', 'aqwqwsdf')
+        } catch (err) {
+            expect(err).toBeInstanceOf(NotFoundException);
+            expect(err.message).toBe('user not found');
         }
     })
 });
