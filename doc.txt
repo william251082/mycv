@@ -15,3 +15,6 @@ npm run start:dev
 
 npm install class-validator class-transformer
 npm install cookie-session @types/cookie-session
+
+run test:
+mycv git:(main) ✗ npm run test:watch
