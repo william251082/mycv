@@ -18,3 +18,4 @@ npm install cookie-session @types/cookie-session
 
 run test:
 mycv git:(main) ✗ npm run test:watch
+mycv git:(main) ✗ npm run test:e2e
