@@ -58,5 +58,27 @@ describe('AuthService', () => {
             expect(err.message).toBe('user not found');
         }
     })
+
+    it('throws if an invalid password is provided', async () => {
+        fakeUsersService.find = () => Promise.resolve([{id:1, email: 'hi@hi.com', password: 'asdf'} as User])
+        try {
+            await service.signin('hi@hi.com', 'asdfw')
+        } catch (err) {
+            expect(err).toBeInstanceOf(BadRequestException);
+            expect(err.message).toBe('bad password');
+        }
+    })
+
+    it('returns a user if correct password is provided', async () => {
+        // fakeUsersService.find = () => Promise.resolve([{id:1, email: 'hi@hi.com', password: 'asdf'} as User])
+        // const user = await service.signin('hi@hi.com', 'asdf')
+        // expect(user).toBeDefined()
+        // option 1
+        // const user = await service.signup('hi@hi.com', 'asdf')
+        // console.log(user)
+        fakeUsersService.find = () => Promise.resolve([{id:1, email: 'hi@hi.com', password: 'e4507829e9ec0f05.792958644f526622bbf44e914f5e973ee9d70a5d505616075da971f7b9e967ef'} as User])
+        const user = await service.signin('hi@hi.com', 'asdf')
+        expect(user).toBeDefined()
+    })
 });
 
