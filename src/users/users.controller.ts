@@ -24,25 +24,18 @@ export class UsersController {
         private authService: AuthService
     ) {}
 
-    // test cookie
-    @Get('/colors/:color')
-    setColor(@Param('color') color: string, @Session() session: any) {
-        session.color = color
-    }
-
-    @Get('/colors')
-    getColor(@Session() session: any) {
-        return session.color
-    }
-
     @Post('/signup')
-    createUser(@Body() body: CreateUserDto) {
-        this.authService.signup(body.email, body.password)
+    async createUser(@Body() body: CreateUserDto, @Session() session: any) {
+        const user = await this.authService.signup(body.email, body.password)
+        session.userId = user.id
+        return user
     }
 
     @Post('/signin')
-    signin(@Body() body: CreateUserDto) {
-        this.authService.signin(body.email, body.password)
+    async signin(@Body() body: CreateUserDto, @Session() session: any) {
+        const user = await this.authService.signin(body.email, body.password)
+        session.userId = user.id
+        return user
     }
 
     @Get('/:id')
