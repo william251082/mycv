@@ -27,5 +27,4 @@ export class CreateReportDto {
     @Min(0)
     @Max(1000000)
     price: string;
-
 }
