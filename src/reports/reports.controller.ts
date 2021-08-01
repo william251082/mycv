@@ -1,9 +1,10 @@
 import {Body, Controller, Post, UseGuards} from '@nestjs/common';
-import {CreateReportDto} from "./dtos/create-report.dto";
 import {AuthGuard} from "../guards/auth.guard";
 import {ReportsService} from "./reports.service";
 import {DeepPartial} from "typeorm";
 import {Report} from "./report.entity";
+import {CurrentUser} from "../users/decorators/current-user.decorator";
+import {User} from "../users/user.entity";
 
 @Controller('reports')
 export class ReportsController {
@@ -11,7 +12,7 @@ export class ReportsController {
 
     @Post()
     @UseGuards(AuthGuard)
-    createReport(@Body() body: DeepPartial<Report>[]) {
-        return this.reportsService.create(body)
+    createReport(@Body() body: DeepPartial<Report>, @CurrentUser() user: User) {
+        return this.reportsService.create(body, user)
     }
 }

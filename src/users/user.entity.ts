@@ -1,11 +1,6 @@
 import {AfterInsert, AfterRemove, AfterUpdate, Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Report} from "../reports/report.entity";
 
-console.log(Report)
-// circular dependency
-// undefined
-//     [class Report]
-
 @Entity()
 export class User {
     @PrimaryGeneratedColumn()
