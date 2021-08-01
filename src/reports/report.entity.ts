@@ -1,6 +1,12 @@
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {User} from "../users/user.entity";
 
+console.log(User)
+// circular dependency
+// undefined
+//     [class Report]
+
+
 @Entity()
 export class Report {
     @PrimaryGeneratedColumn()
