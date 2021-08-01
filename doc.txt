@@ -21,3 +21,5 @@ mycv git:(main) ✗ npm run test:watch
 mycv git:(main) ✗ npm run test:e2e
 
 npm install @nestjs/config
+
+npm install cross-env
