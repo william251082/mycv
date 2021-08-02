@@ -2,31 +2,31 @@ import {Expose, Transform} from "class-transformer";
 
 export class ReportDto {
     @Expose()
-    id: number;
+    id: number
 
     @Expose()
-    price: number;
+    price: number
 
     @Expose()
-    year: number;
+    year: number
 
     @Expose()
-    lng: number;
+    lng: number
 
     @Expose()
-    lat: number;
+    lat: number
 
     @Expose()
-    make: number;
+    make: number
 
     @Expose()
-    model: number;
+    model: number
 
     @Expose()
-    mileage: number;
+    mileage: number
 
     // Generate new property
     @Transform(({obj}) => obj.user.id)
     @Expose()
-    userId: number;
+    userId: number
 }

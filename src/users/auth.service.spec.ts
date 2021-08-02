@@ -9,7 +9,7 @@ describe('AuthService', () => {
     let fakeUsersService: Partial<UsersService>
     beforeEach(async () => {
         // Create a fake copy of the users service
-        const users: User[] = [];
+        const users: User[] = []
         fakeUsersService = {
             find: (email: string) => {
                 const filteredUsers = users.filter(user => user.email === email)
@@ -54,7 +54,7 @@ describe('AuthService', () => {
             await service.signup('hi@hi.com', 'asdf')
         } catch (err) {
             expect(err).toBeInstanceOf(BadRequestException);
-            expect(err.message).toBe('email already in use');
+            expect(err.message).toBe('email already in use')
         }
     })
 
@@ -62,8 +62,8 @@ describe('AuthService', () => {
         try {
             await service.signin('hi@hiqwq.com', 'aqwqwsdf')
         } catch (err) {
-            expect(err).toBeInstanceOf(NotFoundException);
-            expect(err.message).toBe('user not found');
+            expect(err).toBeInstanceOf(NotFoundException)
+            expect(err.message).toBe('user not found')
         }
     })
 
@@ -73,8 +73,8 @@ describe('AuthService', () => {
             const user = await service.signin('hi@hi.com', 'asdfw')
             expect(user).toBeNull()
         } catch (err) {
-            expect(err).toBeInstanceOf(BadRequestException);
-            expect(err.message).toBe('bad password');
+            expect(err).toBeInstanceOf(BadRequestException)
+            expect(err.message).toBe('bad password')
         }
     })
 

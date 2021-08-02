@@ -64,8 +64,8 @@ describe('UsersController', () => {
     try {
       await controller.findUser('1')
     } catch (err) {
-      expect(err).toBeInstanceOf(NotFoundException);
-      expect(err.message).toBe('User not found.');
+      expect(err).toBeInstanceOf(NotFoundException)
+      expect(err.message).toBe('User not found.')
     }
   })
 

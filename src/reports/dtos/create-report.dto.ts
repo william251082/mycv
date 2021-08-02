@@ -2,23 +2,23 @@ import {IsLatitude, IsLongitude, IsNumber, IsString, Max, Min} from "class-valid
 
 export class CreateReportDto {
     @IsString()
-    make: string;
+    make: string
 
     @IsString()
-    model: string;
+    model: string
 
     @IsNumber()
     @Min(1930)
     @Max(2050)
-    year: string;
+    year: string
 
     @IsNumber()
     @Min(0)
     @Max(1000000)
-    mileage: string;
+    mileage: string
 
     @IsLongitude()
-    lng: string;
+    lng: string
 
     @IsLatitude()
     lat: string;
