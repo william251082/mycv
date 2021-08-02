@@ -25,6 +25,9 @@ export class ReportDto {
     @Expose()
     mileage: number
 
+    @Expose()
+    approved: boolean
+
     // Generate new property
     @Transform(({obj}) => obj.user.id)
     @Expose()
