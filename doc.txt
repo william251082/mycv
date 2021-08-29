@@ -23,3 +23,20 @@ mycv git:(main) ✗ npm run test:e2e
 npm install @nestjs/config
 
 npm install cross-env
+
+POST http://localhost:3000/auth/signin
+POST or PATCH http://localhost:3000/reports
+{
+    "make": "toyota",
+    "model": "corolla",
+    "year": 1995,
+    "mileage": 100000,
+    "lng": 0,
+    "lat": 0,
+    "price": 50000
+}
+
+PATCH http://localhost:3000/reports/2
+{
+    "approved": true
+}
