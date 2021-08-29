@@ -1,6 +1,5 @@
 import {AfterInsert, AfterRemove, AfterUpdate, Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Report} from "../reports/report.entity";
-import {truncate} from "fs";
 
 @Entity()
 export class User {

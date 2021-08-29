@@ -7,6 +7,10 @@ export class AdminGuard implements CanActivate {
             return false
         }
 
-        return request.user.admin
+        if (request.currentUser.admin) {
+            return true
+        } else {
+            return false
+        }
     }
 }
