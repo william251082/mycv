@@ -40,3 +40,5 @@ PATCH http://localhost:3000/reports/2
 {
     "approved": true
 }
+
+POST http://localhost:3000/reports?make=toyota&model=corolla&lng=0&lat=0&milage=2000&year=1980
