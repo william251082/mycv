@@ -48,3 +48,4 @@ npm run typeorm migration:generate -- -n initial-schema -o
 npm run typeorm migration:run
 
 npm run test:e2e
+npm install pg
