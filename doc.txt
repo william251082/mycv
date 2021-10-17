@@ -49,3 +49,6 @@ npm run typeorm migration:run
 
 npm run test:e2e
 npm install pg
+
+https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up
+heroku auth:whoami
