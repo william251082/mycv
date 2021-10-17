@@ -42,3 +42,7 @@ PATCH http://localhost:3000/reports/2
 }
 
 POST http://localhost:3000/reports?make=toyota&model=corolla&lng=0&lat=0&milage=2000&year=1980
+
+migration
+npm run typeorm migration:generate -- -n initial-schema -o
+npm run typeorm migration:run
